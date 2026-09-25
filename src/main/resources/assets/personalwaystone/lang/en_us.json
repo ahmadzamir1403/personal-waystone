@@ -1,0 +1,12 @@
+{
+	"item.personalwaystone.personal_waystone": "Personal Waystone",
+	"item.personalwaystone.personal_waystone.tooltip_bound": "Bound to %s, %s, %s",
+	"item.personalwaystone.personal_waystone.tooltip_unbound": "Unbound — sneak-use on a block to bind",
+	"item.personalwaystone.personal_waystone.bound": "Bound to %s, %s, %s",
+	"item.personalwaystone.personal_waystone.unbound": "Waystone unbound",
+	"item.personalwaystone.personal_waystone.not_bound": "Not bound yet — sneak-use on a block to bind",
+	"item.personalwaystone.personal_waystone.already_here": "You are already at your waystone",
+	"item.personalwaystone.personal_waystone.no_cross_dim": "Cross-dimensional travel is disabled",
+	"item.personalwaystone.personal_waystone.cooldown": "Waystone recharging: %ss",
+	"item.personalwaystone.personal_waystone.teleported": "Returned to your waystone"
+}

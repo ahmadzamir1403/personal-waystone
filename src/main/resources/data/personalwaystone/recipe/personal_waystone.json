@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern": [
+		" O ",
+		"OEO",
+		" O "
+	],
+	"key": {
+		"O": "minecraft:obsidian",
+		"E": "minecraft:ender_pearl"
+	},
+	"result": {
+		"id": "personalwaystone:personal_waystone",
+		"count": 1
+	}
+}
