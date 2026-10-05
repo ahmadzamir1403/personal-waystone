@@ -34,8 +34,13 @@ public class PersonalWaystoneItem extends Item {
 	public InteractionResult useOn(UseOnContext context) {
 		Player player = context.getPlayer();
 		Level world = context.getLevel();
-		if (player == null || !player.isShiftKeyDown() || world.isClientSide()) {
+		if (player == null || !player.isShiftKeyDown()) {
 			return InteractionResult.PASS;
+		}
+		// Consume the block interaction on both sides so it cannot fall through
+		// to sneak-use in air and clear the anchor.
+		if (world.isClientSide()) {
+			return InteractionResult.SUCCESS;
 		}
 
 		// Sneak + use on a block = bind the spot above it
@@ -51,6 +56,10 @@ public class PersonalWaystoneItem extends Item {
 
 	@Override
 	public InteractionResult use(Level world, Player player, InteractionHand hand) {
+		// Anchor changes, messages, cooldowns and teleportation are server-owned.
+		if (world.isClientSide()) {
+			return InteractionResult.SUCCESS;
+		}
 		ItemStack stack = player.getItemInHand(hand);
 
 		if (player.isShiftKeyDown()) {
@@ -59,10 +68,6 @@ public class PersonalWaystoneItem extends Item {
 				stack.remove(ModComponents.ANCHOR);
 				player.sendOverlayMessage(Component.translatable("item.personalwaystone.personal_waystone.unbound"));
 			}
-			return InteractionResult.SUCCESS;
-		}
-
-		if (world.isClientSide()) {
 			return InteractionResult.SUCCESS;
 		}
 
